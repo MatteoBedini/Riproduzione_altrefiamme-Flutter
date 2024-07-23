@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           controller: _tabController,
           children: [
             Implant(tabController: _tabController),
-            const Activation(),
+            Activation(),
             const Center(child: Text('Index 2: Dettagli')),],
         ),
       ),
