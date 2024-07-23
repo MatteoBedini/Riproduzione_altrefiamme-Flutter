@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'lib/name_detail_section.dart';
-import 'lib/errors_check.dart';
-import 'lib/activation_check.dart';
-import 'lib/activation_time.dart';
+import 'widgets/name_detail_section.dart';
+import 'widgets/errors_check.dart';
+import 'widgets/activation_check.dart';
+import 'widgets/activation_time.dart';
 
 
 class Implant extends StatelessWidget {
