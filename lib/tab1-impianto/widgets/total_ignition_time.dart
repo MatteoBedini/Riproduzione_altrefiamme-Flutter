@@ -1,31 +1,71 @@
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
-class Activation_time extends StatelessWidget {
+import 'heightNotifier.dart';
+
+
+
+class TotalIgnitionTime extends StatefulWidget {
   final TabController tabController;
-  const Activation_time({super.key, required this.tabController});
+  const TotalIgnitionTime({super.key, required this.tabController});
+
+  @override
+  State<TotalIgnitionTime> createState() => _TotalIgnitionTimeState();
+}
+
+class _TotalIgnitionTimeState extends State<TotalIgnitionTime> {
+
+
+  final GlobalKey _upperContainerKey = GlobalKey();
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateHeight();
+    });
+  }
+
+  void _updateHeight() {
+    final RenderBox renderBox = _upperContainerKey.currentContext?.findRenderObject() as RenderBox;
+    final height = renderBox.size.height;
+
+    // Ottieni il HeightNotifier dal contesto e imposta l'altezza
+    Provider.of<HeightNotifier>(context, listen: false).setHeight(height);
+  }
 
   void _navigateToActivation() {
-    tabController.animateTo(1); // Naviga al secondo elemento (Index 1: Accensione)
+    widget.tabController.animateTo(1); // Naviga al secondo elemento (Index 1: Accensione)
   }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
+
     return Stack(
       children: [
+
         // Container sovrapposto per il bottone
         _buildUnderContainer(),
 
         // Container principale grigio
-        const UpperContainer(),
+        UpperContainer(key: _upperContainerKey),
+
+
+
       ],
     );
   }
 
   Container _buildUnderContainer() {
     return Container(
+        height: Provider.of<HeightNotifier>(context).getHeightWithOffset(40),
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        height: 200,
         alignment: Alignment.bottomCenter,
 
         decoration: BoxDecoration(
@@ -58,8 +98,6 @@ class Activation_time extends StatelessWidget {
   }
 }
 
-
-
 class UpperContainer extends StatelessWidget {
   const UpperContainer({
     super.key,
@@ -68,7 +106,7 @@ class UpperContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:165,
+
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.grey.shade300,

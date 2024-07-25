@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'tab1-impianto/widgets/heightNotifier.dart';
 import 'tab1-impianto/implant.dart';
 import 'tab2-activation/activation.dart';
 import 'bottombar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => HeightNotifier(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -64,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 
       ),
       body: Container(
+
         decoration:
         const BoxDecoration(
           color: Colors.white,
@@ -74,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           controller: _tabController,
           children: [
             Implant(tabController: _tabController),
-            Activation(),
+            const Activation(),
             const Center(child: Text('Index 2: Dettagli')),],
         ),
       ),

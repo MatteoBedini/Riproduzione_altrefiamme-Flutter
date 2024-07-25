@@ -9,6 +9,8 @@ class Errors_check extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
+
       margin: const EdgeInsets.fromLTRB(0, 0, 0, 30),
       child: Stack(
         clipBehavior: Clip.none,
@@ -16,6 +18,7 @@ class Errors_check extends StatelessWidget {
         children: [
 
           Container(
+            width: double.infinity,
             padding: const EdgeInsets.all(30),
             decoration: BoxDecoration(
               color: Colors.green.shade100,
@@ -27,16 +30,20 @@ class Errors_check extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.1),
-                  offset: Offset(0, 5),
+                  offset: const Offset(0, 5),
                   blurRadius: 10,
                 ),
               ],
             ),
-            child: const Text(
-              'Il tuo impianto funziona come previsto',
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.green,
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+              child: const Text(
+                'Il tuo impianto funziona come previsto',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.green,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
 
@@ -46,7 +53,7 @@ class Errors_check extends StatelessWidget {
             left: 30,
             child: Container(
 
-              padding: const EdgeInsets.fromLTRB(4, 8, 4, 8),
+              padding: const EdgeInsets.fromLTRB(4, 10, 4, 10),
               decoration: BoxDecoration(
                 color: Colors.green.shade200,
                 borderRadius: BorderRadius.circular(25),

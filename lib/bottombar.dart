@@ -15,9 +15,9 @@ class BottomBar extends StatelessWidget {
       controller: _tabController,
 
       tabs: const [
-        Tab(icon: Icon(FontAwesomeIcons.fire), text: 'Impianto'),
-        Tab(icon: Icon(FontAwesomeIcons.chartLine), text: 'Accensione'),
-        Tab(icon: Icon(FontAwesomeIcons.magnifyingGlass), text: 'Dettagli'),
+        Tab(icon: Icon(FontAwesomeIcons.fire), child: Text('Impianto', style: TextStyle(fontSize: 10),)),
+        Tab(icon: Icon(FontAwesomeIcons.chartLine), child: Text('Accensione', style: TextStyle(fontSize: 10),)),
+        Tab(icon: Icon(FontAwesomeIcons.magnifyingGlass), child: Text('Dettagli', style: TextStyle(fontSize: 10),)),
       ],
       labelColor: Colors.white,
       unselectedLabelColor: Colors.grey,

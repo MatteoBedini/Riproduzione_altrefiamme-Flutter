@@ -12,14 +12,14 @@ class Name_detail_section extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Expanded(
             child: Text(
               'Stufa pellet soggiorno',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               maxLines: null,
               softWrap: true,
             ),
@@ -33,7 +33,7 @@ class Name_detail_section extends StatelessWidget {
                 ),
                 child: const Text(
                   'DETTAGLI',
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 19),
                 )),
           )
         ],

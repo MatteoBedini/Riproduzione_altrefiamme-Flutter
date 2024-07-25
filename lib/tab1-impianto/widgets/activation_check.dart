@@ -9,8 +9,8 @@ class Activation_check extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 30),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.grey.shade300,
         borderRadius: BorderRadius.circular(20),
@@ -31,8 +31,11 @@ class Activation_check extends StatelessWidget {
                 child: Text(
                   'Il tuo impianto è spento',
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+
                   ),
+
                 ),
               )
             ],
@@ -47,7 +50,7 @@ class Activation_check extends StatelessWidget {
           Container(
 
             padding: const EdgeInsets.fromLTRB(10,0,20,0),
-            child: Text('Ultimo aggiornamento: 01 Luglio 2024 09:37', style: TextStyle(fontSize: 20),textAlign: TextAlign.right,),
+            child: const Text('Ultimo aggiornamento: 01 Luglio 2024 09:37', style: TextStyle(fontSize: 15),textAlign: TextAlign.right,),
           ),
         ],
       ),
