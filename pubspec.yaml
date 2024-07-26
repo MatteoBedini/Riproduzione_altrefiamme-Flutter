@@ -38,6 +38,7 @@ dependencies:
   fl_chart: ^0.68.0
 
   font_awesome_flutter: any
+  indexed: ^0.0.8
 dev_dependencies:
   flutter_test:
     sdk: flutter

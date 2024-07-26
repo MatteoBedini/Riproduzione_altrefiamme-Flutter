@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:riproduzione_app_altrefiamme/tab1-implant/widgets/heightNotifier.dart';
 
-import 'tab1-impianto/widgets/heightNotifier.dart';
-import 'tab1-impianto/implant.dart';
+import 'package:riproduzione_app_altrefiamme/tab3-details/details.dart';
+
+
+import 'tab1-implant/implant.dart';
 import 'tab2-activation/activation.dart';
 import 'bottombar.dart';
 
@@ -11,9 +14,11 @@ void main() {
     ChangeNotifierProvider(
       create: (context) => HeightNotifier(),
       child: const MyApp(),
-    ),
+    )
+
   );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -83,7 +88,9 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           children: [
             Implant(tabController: _tabController),
             const Activation(),
-            const Center(child: Text('Index 2: Dettagli')),],
+            const Details(),
+
+          ],
         ),
       ),
       bottomNavigationBar: Container(

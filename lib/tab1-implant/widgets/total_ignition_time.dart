@@ -29,11 +29,12 @@ class _TotalIgnitionTimeState extends State<TotalIgnitionTime> {
   }
 
   void _updateHeight() {
-    final RenderBox renderBox = _upperContainerKey.currentContext?.findRenderObject() as RenderBox;
-    final height = renderBox.size.height;
-
-    // Ottieni il HeightNotifier dal contesto e imposta l'altezza
-    Provider.of<HeightNotifier>(context, listen: false).setHeight(height);
+    // Controlla se il contesto è nullo o se il RenderBox è nullo
+    final renderBox = _upperContainerKey.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null) {
+      final height = renderBox.size.height;
+      Provider.of<HeightNotifier>(context, listen: false).setHeight(height);
+    }
   }
 
   void _navigateToActivation() {

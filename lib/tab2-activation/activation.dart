@@ -16,14 +16,20 @@ class Activation extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         margin: const EdgeInsets.all(20),
-        child: const Column(
+        child: Column(
           children: [
-            Title(),
-            Divide(),
-            Date(),
-            OperatingTime(),
-            //MyChart(),
-            BookInterventionButton(),
+            const Title(),
+            const Divide(),
+            const Date(),
+            const OperatingTime(),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              width: double.infinity,
+              height: 300,
+              child: const MyChart(points: [1,2,4,3,5,16,7,8,8,3,0,0],),
+            ),
+
+            const BookInterventionButton(),
           ],
         ),
       ),

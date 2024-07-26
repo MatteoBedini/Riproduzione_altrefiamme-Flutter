@@ -12,7 +12,7 @@ class OperatingTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+        margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
         decoration: BoxDecoration(
             color: Colors.green.shade100,
             border: Border.all(
