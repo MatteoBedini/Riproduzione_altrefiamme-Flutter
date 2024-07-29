@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../general_widgets/book_an_intervention_button.dart';
+import '../../../../general_widgets/book_an_intervention_button.dart';
 import 'widgets/name_detail_section.dart';
 import 'widgets/errors_check.dart';
 import 'widgets/activation_check.dart';

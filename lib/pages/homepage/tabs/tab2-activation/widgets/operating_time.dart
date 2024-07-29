@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../general_widgets/divide.dart';
+import '../../../../../general_widgets/divide.dart';
 
 class OperatingTime extends StatelessWidget {
   const OperatingTime({

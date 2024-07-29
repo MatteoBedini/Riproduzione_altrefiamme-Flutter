@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:riproduzione_app_altrefiamme/general_widgets/book_an_intervention_button.dart';
-import 'package:riproduzione_app_altrefiamme/tab2-activation/widgets/title.dart';
-import '../tab2-activation/widgets/operating_time.dart';
-import '../general_widgets/divide.dart';
+import 'package:riproduzione_app_altrefiamme/pages/homepage/tabs/tab2-activation/widgets/title.dart';
+
+import '../../../../general_widgets/divide.dart';
+import 'widgets/operating_time.dart';
+
 import 'widgets/date.dart';
 import 'widgets/chart.dart';
 
