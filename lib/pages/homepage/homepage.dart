@@ -55,11 +55,9 @@ class _MyHomePageState extends State<MyHomePage>
         child: TabBarView(
           controller: _tabController,
           children: [
-            Implant(tabController: _tabController),
-            const Activation(),
-            Details(
-              tabController: _tabController,
-            ),
+            Implant(tabController: _tabController,key: const PageStorageKey(1),),
+            const Activation(key: PageStorageKey(2),),
+            Details(tabController: _tabController,key: const PageStorageKey(3),),
           ],
         ),
       ),
