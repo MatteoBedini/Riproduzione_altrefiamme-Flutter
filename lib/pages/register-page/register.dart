@@ -24,7 +24,7 @@ class Register extends StatelessWidget {
                       scale: 0.5,),
                   ),
                   const Center(
-                    child: Text('Login',
+                    child: Text('Registrati',
                       style: TextStyle(color: Colors.white, fontSize: 40),),
                   ),
                   Container(
@@ -51,13 +51,36 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                    margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
 
                     child:
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Password',
+                          style: TextStyle(color: Colors.white, fontSize: 20),),
+                        TextField(
+                          decoration: InputDecoration(
+
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  20)),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+
+                    child:
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Conferma Password',
                           style: TextStyle(color: Colors.white, fontSize: 20),),
                         TextField(
                           decoration: InputDecoration(
