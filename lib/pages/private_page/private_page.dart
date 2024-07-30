@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:riproduzione_app_altrefiamme/pages/login-page/login.dart';
 
 import '../../general_widgets/divide.dart';
 import '../profile_page/profile_page.dart';
@@ -30,29 +31,35 @@ class PrivatePage extends StatelessWidget {
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),
               ),
-              child: const SingleChildScrollView(
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     // Profile
-                    ProfilePrivacyButtons(),
+                    const ProfilePrivacyButtons(),
 
                     // Assistenza
-                    Assistance(),
+                    const Assistance(),
 
                     //Gestione notifiche
-                    Notifies(),
+                    const Notifies(),
 
                     //Logout
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 100, 0, 10),
+                      padding: const EdgeInsets.fromLTRB(0, 100, 0, 10),
                       child: TextButton(
-                          onPressed: null,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Login()),
+                            );
+                          },
                           child: const Text(
                             'Log out',
                             style: TextStyle(color: Colors.red, fontSize: 25),
                           )),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.zero,
                       child: Text(
                         '1.0.0 version',

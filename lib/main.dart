@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:riproduzione_app_altrefiamme/pages/homepage/tabs/tab1-implant/widgets/heightNotifier.dart';
+import 'package:riproduzione_app_altrefiamme/pages/login-page/login.dart';
 
 
 import 'pages/homepage/homepage.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Riproduzione altrefiamme'),
+      home: const Login(),
     );
   }
 }
