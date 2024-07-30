@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:riproduzione_app_altrefiamme/pages/homepage/homepage.dart';
 
-import '../register-page/register.dart';
+import '../register_page/register.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});

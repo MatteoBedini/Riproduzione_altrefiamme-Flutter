@@ -125,7 +125,7 @@ class Register extends StatelessWidget {
                           );
                         }
                       },
-                      child: Text('Sei già registrato? Clicca qui',
+                      child: const Text('Sei già registrato? Clicca qui',
                         style: TextStyle(color: Colors.white,
                             fontSize: 20,
                             decoration: TextDecoration.underline,
