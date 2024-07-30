@@ -12,8 +12,8 @@ class Divide extends StatelessWidget {
       color: Colors.grey.shade400,
       height: 20,
       thickness: 1,
-      indent: 10,
-      endIndent: 10,
+      indent: 0,
+      endIndent: 0,
     );
   }
 }

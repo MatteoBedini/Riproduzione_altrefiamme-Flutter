@@ -89,7 +89,7 @@ class Login extends StatelessWidget {
                           builder: (context) => const Register()),
                     );
                   },
-                  child: Text('Non sei registrato? Clicca qui',style: TextStyle(color: Colors.white,fontSize: 20,decoration: TextDecoration.underline,decorationColor: Colors.white),),
+                  child: const Text('Non sei registrato? Clicca qui',style: TextStyle(color: Colors.white,fontSize: 20,decoration: TextDecoration.underline,decorationColor: Colors.white),),
                 ),
               )
             ]
