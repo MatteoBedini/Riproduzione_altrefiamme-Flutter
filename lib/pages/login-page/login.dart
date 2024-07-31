@@ -1,11 +1,67 @@
 
 import 'package:flutter/material.dart';
 import 'package:riproduzione_app_altrefiamme/pages/homepage/homepage.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import '../register_page/register.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+
+
+  Future<void> login(String email, String password) async {
+    final response = await http.post(
+      Uri.parse('https://tuo-server-url.com/login'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': email,
+        'password': password,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      // Login riuscito, naviga alla homepage
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MyHomePage(title: 'Riproduzione Altrefiamme'),
+        ),
+      );
+    } else {
+      // Login fallito, mostra un messaggio di errore
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Login Fallito'),
+            content: const Text('Controlla le tue credenziali e riprova.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +83,13 @@ class Login extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
 
                 child:
-                const Column(
+               Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Indirizzo mail',style: TextStyle(color: Colors.white,fontSize: 20),),
+                    const Text('Indirizzo mail',style: TextStyle(color: Colors.white,fontSize: 20),),
                     TextField(
-                      decoration: InputDecoration(
+                      controller: emailController,
+                      decoration: const InputDecoration(
 
                         filled: true,
                         fillColor: Colors.white,
@@ -48,12 +105,13 @@ class Login extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
 
                 child:
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Password',style: TextStyle(color: Colors.white,fontSize: 20),),
+                    const Text('Password',style: TextStyle(color: Colors.white,fontSize: 20),),
                     TextField(
-                      decoration: InputDecoration(
+                      controller: passwordController,
+                      decoration: const InputDecoration(
 
                         filled: true,
                         fillColor: Colors.white,
@@ -98,5 +156,4 @@ class Login extends StatelessWidget {
       ),
     );
   }
-
 }
