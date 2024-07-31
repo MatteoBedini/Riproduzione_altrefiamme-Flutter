@@ -22,7 +22,7 @@ class _LoginState extends State<Login> {
 
   Future<void> login(String email, String password) async {
     final response = await http.post(
-      Uri.parse('https://tuo-server-url.com/login'),
+      Uri.parse('http://10.0.2.2:8701/login'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -130,10 +130,7 @@ class _LoginState extends State<Login> {
                     foregroundColor: WidgetStatePropertyAll(Colors.white),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const MyHomePage(title:'Riproduzione Altrefiamme')),
-                    );
+                    login(emailController.text, passwordController.text);
                   },
                   child: const Text('ACCEDI',style: (TextStyle(fontSize: 20)),),
                 ),
@@ -142,9 +139,10 @@ class _LoginState extends State<Login> {
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Register()),
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => const Register(),
+                    )
                     );
                   },
                   child: const Text('Non sei registrato? Clicca qui',style: TextStyle(color: Colors.white,fontSize: 20,decoration: TextDecoration.underline,decorationColor: Colors.white),),
