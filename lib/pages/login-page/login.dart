@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:riproduzione_app_altrefiamme/pages/homepage/homepage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -17,12 +18,12 @@ class _LoginState extends State<Login> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
+  final FlutterSecureStorage storage = const FlutterSecureStorage();
 
 
   Future<void> login(String email, String password) async {
     final response = await http.post(
-      Uri.parse('http://10.0.2.2:8701/login'),
+      Uri.parse('http://10.0.2.2:8701/auth/login'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -33,6 +34,12 @@ class _LoginState extends State<Login> {
     );
 
     if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+      final accessToken = responseData['token'];
+
+      // Memorizza il token in modo sicuro
+      await storage.write(key: 'access_token', value: accessToken);
+
       // Login riuscito, naviga alla homepage
       Navigator.push(
         context,
