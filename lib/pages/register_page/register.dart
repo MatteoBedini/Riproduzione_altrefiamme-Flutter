@@ -46,8 +46,9 @@ class _FormState extends State<Form> {
   final confirmPasswordController = TextEditingController();
   final nameController = TextEditingController();
   final surnameController = TextEditingController();
+  final usernameController = TextEditingController();
 
-  Future<void> register(String email, String password, String name, String surname) async {
+  Future<void> register(String email, String password, String name, String surname, String username) async {
     final response = await http.post(
       Uri.parse('http://10.0.2.2:8701/signup'),
       headers: <String, String>{
@@ -57,7 +58,8 @@ class _FormState extends State<Form> {
         'email': email,
         'password': password,
         'name': name,
-        'surname': surname
+        'surname': surname,
+        'username': username
       }),
     );
 
@@ -135,6 +137,7 @@ class _FormState extends State<Form> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Username(usernameController: usernameController),
         Name(nameController: nameController),
         Surname(surnameController: surnameController),
         Mail(emailController: emailController,),
@@ -154,9 +157,9 @@ class _FormState extends State<Form> {
           foregroundColor: WidgetStatePropertyAll(Colors.white),
         ),
         onPressed: () {
-          register(emailController.text, passwordController.text, nameController.text, surnameController.text);
+          register(emailController.text, passwordController.text, nameController.text, surnameController.text, usernameController.text);
         },
-        child: const Text('ACCEDI',style: (TextStyle(fontSize: 20)),),
+        child: const Text('REGISTRATI',style: (TextStyle(fontSize: 20)),),
       ),
     );
   }
@@ -291,6 +294,46 @@ class Mail extends StatelessWidget {
             style: TextStyle(color: Colors.white, fontSize: 20),),
           TextField(
             controller: emailController,
+            decoration: const InputDecoration(
+
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(
+                    20)),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Username extends StatelessWidget {
+
+
+  const Username({
+    super.key,
+    required this.usernameController,
+  });
+
+
+  final TextEditingController usernameController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+
+      child:
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Username',
+            style: TextStyle(color: Colors.white, fontSize: 20),),
+          TextField(
+            controller: usernameController,
             decoration: const InputDecoration(
 
               filled: true,
